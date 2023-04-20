@@ -1,5 +1,6 @@
 package com.sr.slyzebradatawedgesimple.zebra.viewmodels
 
+import android.graphics.Bitmap
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sr.slyzebradatawedgesimple.zebra.model.ZScanResult
@@ -12,21 +13,34 @@ class ZPrintViewModel: ViewModel() {
 
     private val zebraPrinterHelper = ZPrinterHelper()
 
+    companion object {
+        const val PRINTER_ADDRESS = "010.005.59.042"
+        const val PRINTER_PORT = 9100
+    }
+
     // print only the Scanned result Data
     fun printScanResult(scanResult: ZScanResult) {
         viewModelScope.launch {
 
-            //Printer Ip / Port
-            val printerAddress = "010.005.59.042"
-            val port = 9100
-
-            // Use withContext(Dispatchers.IO) to run the network operation on a background thread
-            val printer = withContext(Dispatchers.IO) { zebraPrinterHelper.connectToPrinter(printerAddress, port) }
-
+            val printer = zebraPrinterHelper.connectToPrinter(PRINTER_ADDRESS, PRINTER_PORT)
             if (printer != null) {
                 val zpl = zebraPrinterHelper.createZplFromScanResult(scanResult)
                 zebraPrinterHelper.printZpl(printer, zpl)
             }
         }
     }
+
+
+    // print A Bitmap
+    fun printBitmap(bitmap: Bitmap) {
+        viewModelScope.launch {
+
+            val printer = zebraPrinterHelper.connectToPrinter(PRINTER_ADDRESS, PRINTER_PORT)
+            if (printer != null) {
+                zebraPrinterHelper.printBitmap(printer, bitmap)
+            }
+        }
+    }
+
+
 }

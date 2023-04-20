@@ -10,13 +10,15 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModelProvider
 import com.sr.slyzebradatawedgesimple.ui.theme.SlyZebraDataWedgeSimpleTheme
 import com.sr.slyzebradatawedgesimple.zebra.utils_zebra.ZBroadcastReceiverHandler
-import com.sr.slyzebradatawedgesimple.zebra.view.ZScreenSimpleResult
+import com.sr.slyzebradatawedgesimple.zebra.view.ZScanResultScreen
 import com.sr.slyzebradatawedgesimple.zebra.viewmodels.ZScanViewModel
 
 class MainActivity : ComponentActivity() {
 
     private lateinit var viewModel: ZScanViewModel
     private lateinit var broadcastReceiverHandler: ZBroadcastReceiverHandler
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +33,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    ZScreenSimpleResult(viewModel)
+                    ZScanResultScreen()
                 }
             }
         }
