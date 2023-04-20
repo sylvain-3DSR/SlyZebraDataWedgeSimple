@@ -30,7 +30,6 @@ class ZPrintViewModel: ViewModel() {
         }
     }
 
-
     // print A Bitmap
     fun printBitmap(bitmap: Bitmap) {
         viewModelScope.launch {
