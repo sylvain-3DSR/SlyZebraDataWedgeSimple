@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel = ViewModelProvider(this).get(ZScanViewModel::class.java)
+        viewModel = ViewModelProvider(this)[ZScanViewModel::class.java]
         broadcastReceiverHandler = ZBroadcastReceiverHandler(this, viewModel)
 
         setContent {

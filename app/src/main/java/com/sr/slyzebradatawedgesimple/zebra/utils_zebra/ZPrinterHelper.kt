@@ -1,21 +1,16 @@
 package com.sr.slyzebradatawedgesimple.zebra.utils_zebra
 
 import android.graphics.Bitmap
-import android.util.Base64
 import android.util.Log
 import com.sr.slyzebradatawedgesimple.zebra.model.ZScanResult
 import com.zebra.sdk.comm.Connection
 import com.zebra.sdk.comm.TcpConnection
 import com.zebra.sdk.graphics.ZebraImageFactory
-import com.zebra.sdk.graphics.ZebraImageI
-import com.zebra.sdk.graphics.internal.ZebraImageAndroid
-import com.zebra.sdk.printer.GraphicsUtil
 import com.zebra.sdk.printer.PrinterLanguage
 import com.zebra.sdk.printer.ZebraPrinter
 import com.zebra.sdk.printer.ZebraPrinterFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import java.io.ByteArrayOutputStream
 
 class ZPrinterHelper {
 

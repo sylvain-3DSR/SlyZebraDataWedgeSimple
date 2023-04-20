@@ -67,8 +67,7 @@ fun ZScanResultScreen(
         Button(
             onClick = {
                 composeView.draw(myCanvas)
-                val result = myBitmap
-                printViewModel.printBitmap(result)
+                printViewModel.printBitmap(myBitmap)
             },
             modifier = Modifier.padding(16.dp)
         ) {

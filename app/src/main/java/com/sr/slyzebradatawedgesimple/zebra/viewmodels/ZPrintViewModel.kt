@@ -5,9 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sr.slyzebradatawedgesimple.zebra.model.ZScanResult
 import com.sr.slyzebradatawedgesimple.zebra.utils_zebra.ZPrinterHelper
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class ZPrintViewModel: ViewModel() {
 
