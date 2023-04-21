@@ -23,5 +23,4 @@ class ZBroadcastReceiverHandler(
     fun unregister() {
         context.unregisterReceiver(viewModel.myBroadcastReceiver)
     }
-
 }

@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import android.graphics.Color
 
 
+
 fun convertMmToDots(mm: Float, dpi: Int): Int {
 
     // convert tin inches

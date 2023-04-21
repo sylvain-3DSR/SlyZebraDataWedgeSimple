@@ -8,6 +8,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
@@ -31,6 +32,8 @@ fun ZScanResultScreen(
 ) {
     val scanResult = zScanViewModel.scanResult.collectAsState(initial = ZScanResult("", "", ""))
     val context = LocalContext.current
+
+    val errorMessage by printViewModel.errorMessage.collectAsState()
 
     // Set up the composable to print
     val composeView = remember {
@@ -64,6 +67,15 @@ fun ZScanResultScreen(
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
+        errorMessage?.let { errorMsg ->
+            Text(
+                text = errorMsg,
+                color = Color.Red,
+                modifier = Modifier.padding(vertical = 8.dp)
+            )
+        }
+
         Button(
             onClick = {
                 composeView.draw(myCanvas)
